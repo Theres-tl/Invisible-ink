@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Write Your Notes - Invisible Ink</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background-color: #e6ccf5; /* Lilac background */
+            padding: 20px;
+            position: relative;
+        }
+
+        .writing-area {
+            width: 210mm; /* A4 width */
+            height: 297mm; /* A4 height */
+            border: 1px solid #ccc;
+            position: relative;
+            margin: 0 auto; /* Center the A4 area */
+            overflow: hidden; /* Prevent overflow */
+        }
+
+        #noteArea {
+            width: calc(100% - 6cm); /* 3cm margin on both sides */
+            height: calc(100% - 13cm); /* 8cm top margin and 5cm bottom margin */
+            border: none;
+            padding: 20px;
+            font-size: 16px;
+            line-height: 1.5;
+            color: transparent; /* Invisible text color */
+            caret-color: black; /* Make the caret visible */
+            background-color: transparent; /* Transparent background */
+            resize: none; /* Disable resizing */
+            outline: none; /* Remove outline */
+            position: absolute; /* Position inside A4 */
+            top: 8cm; /* 8cm from top */
+            left: 3cm; /* 3cm from left */
+            z-index: 1; /* Stack above template */
+            cursor: text; /* Change to text cursor */
+        }
+
+        #submitButton {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #f8b500; /* Change to lilac-friendly color */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease;
+            position: relative; /* Position for animation */
+            z-index: 3; /* Make sure it's on top */
+        }
+
+        #submitButton:hover {
+            background-color: #e6a700; /* Darker on hover */
+        }
+
+        #popupMessage {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            z-index: 1000;
+        }
+
+        #popupMessage h2 {
+            color: #ff5733;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Your Writing Area</h1>
+    <div class="writing-area">
+        <textarea id="noteArea" placeholder="Start typing..." spellcheck="false"></textarea>
+    </div>
+
+    <button id="submitButton">Submit</button>
+
+    <div id="popupMessage">
+        <h2>🎉 Your notes are safely hidden forever! Well done! 🎉</h2>
+        <p>Enjoy the moment of not seeing what you've written!</p>
+    </div>
+
+    <script>
+        const noteArea = document.getElementById('noteArea');
+        const popupMessage = document.getElementById('popupMessage');
+
+        // Get URL parameters to set template
+        const params = new URLSearchParams(window.location.search);
+        const template = params.get('template');
+
+        // Update template image in the writing area
+        const writingArea = document.querySelector('.writing-area');
+        const templateImage = document.createElement('img');
+        templateImage.src = `images/${template}.jpg`; // Set template image
+        templateImage.style.width = '100%'; // Set width to fill the area
+        templateImage.style.position = 'absolute';
+        templateImage.style.top = '0';
+        templateImage.style.left = '0';
+        templateImage.style.pointerEvents = 'none'; // Allow clicks to go through
+        writingArea.appendChild(templateImage);
+
+        // Handle submit button click
+        document.getElementById('submitButton').addEventListener('click', () => {
+            noteArea.value = ''; // Clear the text so it's not stored
+            popupMessage.style.display = 'block';
+
+            // Hide the pop-up after 4 seconds
+            setTimeout(() => {
+                popupMessage.style.display = 'none';
+            }, 4000);
+        });
+    </script>
+</body>
+</html>

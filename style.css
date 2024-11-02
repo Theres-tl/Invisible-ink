@@ -1,0 +1,69 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0; /* Light background */
+    color: #333; /* Text color */
+    text-align: center; /* Center text */
+    padding: 20px;
+}
+
+/* Selector styles */
+.selector {
+    margin: 20px 0;
+}
+
+h1, h2 {
+    color: #5c4d9d; /* Darker text color */
+}
+
+.template-images, .stylus-images {
+    display: flex; /* Flexbox layout */
+    justify-content: center; /* Center images */
+    gap: 10px; /* Space between images */
+}
+
+img {
+    width: 100px; /* Set image size */
+    height: auto; /* Maintain aspect ratio */
+    border: 2px solid transparent; /* Border */
+    transition: border-color 0.3s; /* Smooth transition */
+    cursor: pointer; /* Change cursor to pointer */
+}
+
+img:hover {
+    border-color: #f8b500; /* Change border color on hover */
+}
+
+/* Start Writing Button */
+#startButton {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #f8b500; /* Background color */
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+#startButton:hover {
+    background-color: #e6a700; /* Darker on hover */
+}
+
+/* Popup Message Styles */
+#popupMessage {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    z-index: 1000;
+}
+
+#popupMessage h2 {
+    color: #ff5733;
+    margin-bottom: 10px;
+}
