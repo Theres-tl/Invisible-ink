@@ -18,6 +18,24 @@ This project humorously challenges the norms, offering an interface that hides t
 - HTML
 - CSS
 - JavaScript
+- 
+## Installation Guide 🖥️
+
+### For the Website:
+
+1. **Clone the Repository**  
+   Clone the project repository to your local machine using the following command:
+   ```bash
+   git clone https://github.com/AneetaPT/Invisible-ink.git
+   
+2. **Navigate to the Project Directory**
+   bash
+   cd invisible-ink
+   
+3. *Open the index.html File in Your Browser*
+
+    - Double-click the index.html file or use a live server extension if using a code editor like Visual Studio Code.
+
 
 
 # Installation 🖥️
