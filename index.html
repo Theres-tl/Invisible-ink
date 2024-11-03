@@ -3,23 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Select Template - Invisible Ink</title>
+    <title>Phantom Pages - Magical Realm</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url('images/magical_background.jpg'); /* Magical forest background */
+            background-size: cover; /* Cover the entire area */
+            overflow: hidden;
+            margin: 0;
+            position: relative; /* Position for magical elements */
+            color: #5e3da7; /* Light text for visibility */
+        }
+
+        .title {
+            font-size: 4rem;
+            color: #5327d9; /* Gold color for the title */
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7); /* Shadow for better visibility */
+            animation: glow 1.5s ease-in-out infinite alternate; /* Glowing effect */
+            z-index: 2; /* Above other elements */
+        }
+
+        @keyframes glow {
+            0% {
+                text-shadow: 0 0 5px #5327d9, 0 0 10px #5327d9;
+            }
+            100% {
+                text-shadow: 0 0 20px #5327d9, 0 0 30px #5327d9;
+            }
+        }
+
+        #startButton {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #3d1d6e; /* Medium purple button */
+            color: #ffffff; /* Light text */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            transition: background-color 0.3s ease;
+            opacity: 0; /* Start hidden */
+            animation: fadeIn 2s forwards; /* Fade in animation */
+            animation-delay: 2s; /* Delay to let title animate */
+            z-index: 2; /* Make sure the button is above other elements */
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
 </head>
 <body>
-    <h1>Choose Your Writing Experience</h1>
-
-    <div class="selector">
-        <h2>Select Template:</h2>
-        <div class="template-images">
-            <img src="images/template1.jpg" alt="Template 1" class="template" data-template="template1">
-            <img src="images/template2.jpg" alt="Template 2" class="template" data-template="template2">
-            <img src="images/template3.jpg" alt="Template 3" class="template" data-template="template3">
-        </div>
+    <div>
+        <h1 class="title">Phantom Pages</h1>
+        <button id="startButton">Let's get rolling!!</button>
     </div>
 
-    <button id="startButton">Start Writing</button>
-
-    <script src="app.js"></script>
+    <script>
+        // Redirect to the selector page when the button is clicked
+        document.getElementById('startButton').addEventListener('click', () => {
+            window.location.href = 'note.html'; // Redirect to the main app page
+        });
+    </script>
 </body>
 </html>
